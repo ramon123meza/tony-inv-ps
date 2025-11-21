@@ -227,7 +227,7 @@
     </table>
 
     <!-- Line Items Table -->
-    <table class="main-table" style="margin-top: 5px; min-height: 450px;">
+    <table class="main-table" style="margin-top: 5px;">
         <thead>
             <tr style="background-color: white !important; font-size: 13px;">
                 <th style="width: 4%; border: 1px solid black; padding: 4px; color: black !important; background-color: white !important; text-align: center;">Line</th>
@@ -255,12 +255,13 @@
                 <td style="text-align: right; padding-right: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Volume or '&nbsp;' }}</td>
             </tr>
             {% endfor %}
-            <!-- Bottom border row -->
-            <tr>
-                <td colspan="9" style="border-top: 1px solid black; padding: 0; height: 1px;"></td>
-            </tr>
         </tbody>
     </table>
+
+    <!-- Fixed bottom border for line items table - positioned just above totals -->
+    <div style="position: fixed; bottom: 85px; left: 0; right: 0; width: 100%; padding: 0 10px; box-sizing: border-box;">
+        <hr style="border: 0; border-top: 1px solid black; margin: 0;">
+    </div>
 
     <!-- Totals Section - Fixed at bottom -->
     <div style="position: fixed; bottom: 60px; left: 0; right: 0; width: 100%; padding: 0 10px; box-sizing: border-box;">
