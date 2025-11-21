@@ -1,0 +1,329 @@
+<div class="packing-slip">
+    <!DOCTYPE html>
+    <html lang="en">
+    
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Play', sans-serif;
+      padding-top: 0cm;
+      padding-bottom: 0.5cm;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background-color: white;
+      padding-top: 0cm;
+    }
+
+    .header-section {
+      background-color: #434343;
+      color: white;
+      padding: 2px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .company-info {
+      width: 80%;
+      background-color: white;
+      padding: 0px;
+      font-size: 12px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    .company-header {
+      color: black;
+      padding: 0px 0;
+      font-size: 20px;
+      text-align: left;
+    }
+
+    .company-logo {
+      width: 55%;
+      padding: 0;
+      text-align: right;
+    }
+
+    .ship-info-header {
+      background-color: #434343;
+      color: white;
+      padding: 2px;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .info-box {
+      width: 30%;
+      padding: 0;
+      margin: 2%;
+      box-sizing: border-box;
+      border: 1px solid black;
+      float: left;
+      font-size: 15px;
+    }
+
+    .info-content {
+      padding: 2px;
+      text-align: left;
+      width: auto;
+    }
+
+    .recipient-name {
+      font-weight: bold;
+    }
+
+    .company-logo img {
+      max-width: 180%;
+    }
+
+    .main-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .main-table th,
+    .main-table td {
+      padding: 5px;
+      text-align: center;
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+      border-top: 0;
+      border-bottom: 0;
+      background-color: white;
+    }
+
+    .main-table th {
+      border-top: 1px solid black;
+    }
+
+    .main-table tr:last-child td {
+      border-bottom: 1px solid black;
+    }
+
+    .barcode {
+      text-align: left;
+      padding: 5px 0;
+      width: auto;
+    }
+
+    /* New CSS for better text justification */
+    .description-cell {
+      text-align: justify;
+      padding-right: 12px;
+      font-size: 14px; /* Adjust font size as needed */
+    }
+  </style>
+    
+    <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; border-bottom: 4px double grey;">
+        <tbody>
+            <tr>
+                <td class="info-box" valign="top" style="width: 27%; border: none;">
+                    <img src="https://i.imgur.com/hsUK2Bj.jpg" alt="Ship To" style="display: block; width: 80%; padding-right: 50px; padding-top: 30px;">
+                    <div class="info-content" style="font-size: 14px; color: black;">
+                        <div class="recipient-name">
+                            <b><span></span></b>
+                        </div>
+                    </div>
+                </td>
+                <td class="info-box" valign="top" style="width: 46%; border: none;">
+                    <div class="info-content" style="font-size: 16px; color: black; padding: 10px; text-align: center;">
+                        <div><strong style="font-size: 30px;">TOTAL DISTRIBUTION INC.</strong></div>
+                        <div style="font-size: 15px;"><b>www.totaldistro.com</b></div>
+                        <div style="font-size: 15px;">1055 E. Colorado Blvd #500, Pasadena Ca 91106</div>
+                        <div style="font-size: 15px;">Tel: (626)939-0999&nbsp;&nbsp;&nbsp;&nbsp;Fax: (626)381-9585</div>
+                        <div><strong style="font-size: 36px;">INVOICE</strong></div>
+                    </div>
+                </td>
+                <td class="info-box" valign="top" style="width: 40%; border: none; padding-left: 20px;padding-top: 30px;">
+                
+                    <div class="info-content" style="font-size: 20px; color: black;">
+                    <div style="font-weight: bold; font-size: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*{{ Order_number }}*</div>
+                    </div>
+                    <div class="info-content" style="font-size: 20px; color: black;">
+                        <div style="font-weight: bold; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invoice No.: {{ Order_number }}</div>
+                    </div>
+                    <div class="info-content" style="font-size: 20px; color: black;">
+                        <div style="font-weight: bold; font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date: {{ Invoice_Date }}</div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; border-bottom: 0px double grey; padding-bottom: 0px;">
+        <tbody>
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    <strong>Customer ID:</strong> {{ Customer_ID }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Ship Date:</strong> {{ Ship_Date }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Page: 1</strong>
+                    <hr style="margin-top: 4px; border: 1px solid black;">
+                </td>
+            </tr>
+            <tr>
+                <td valign="top" style="width: 10%;">
+                    <div><b>&nbsp;&nbsp;Sold To:</b></div>
+                    <div>
+                        <div class="recipient-name">
+                            <b><span></span></b>
+                        </div>
+    
+                    </div>
+                </td>
+                <td class="info-box" valign="top" style="width: 40%;">
+                    <div><b></b></div>
+                    <div class="info-content">
+                        <div class="recipient-name">
+                            <b><span>{{ Recipient_Name }}</span></b>
+                        </div>
+                        <div>
+                            {{ Recipient_Company }}<br>{{ Address1 }}&nbsp;{{ Address2 }}<br>{{ City }},&nbsp;{{ State }}&nbsp;{{ Postal_Code }}&nbsp;{{ Country_Code }}<br><br>Tel: {{ Phone }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fax:{{ Fax }}<br>
+                        </div>
+                    </div>
+                </td>
+                <td valign="top" style="width: 10%;">
+                    <div><b>&nbsp;&nbsp;&nbsp;Ship To:</b></div>
+                    <div style="font-size: 14px; color: black;">
+                       
+                    </div>
+    
+                </td>
+                <td class="info-box" valign="top" style="width: 40%;">
+                    <div><b></b></div>
+                    <div class="info-content">
+                        <div class="recipient-name">
+                            <b><span>{{ Recipient_Name }}</span></b>
+                        </div>
+                        
+                        <div>{{ Recipient_Company }}<br>{{ Address1 }}&nbsp;{{ Address2 }}<br>{{ City }},&nbsp;{{ State }}&nbsp;{{ Postal_Code }}&nbsp;{{ Country_Code }}</div>
+                        <div><br>Tel: {{ Phone }}</div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+     
+    <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; border: 1px solid black; border-collapse: collapse; margin-top: 2px; font-size: 15px;">
+        <thead>
+            <tr style="background-color: white !important;">
+                <th style="width: 10%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">S/O No.</th>
+                <th style="width: 12.5%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">S/O Date</th>
+                <th style="width: 12.5%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">P/O No.</th>
+                <th style="width: 11.5%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Sales Rep.</th>
+                <th style="width: 15%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Ship Via</th>
+                <th style="width: 10%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">F.O.B</th>
+                <th style="width: 16%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;"><strong>Terms</strong></th>
+                <th style="width: 10%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">&nbsp;{{ SO_No }}</td>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">{{ SO_Date }}</td>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">{{ PO_No }}</td>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">{{ Sales_rep }}</td>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">{{ ship_via }}</td>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">Los Angeles</td>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">&nbsp;<strong>{{ Terms }}</strong></td>
+                <td style="border: 1px solid black; padding: 5px; text-align: center;">{{ Date_Paid }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="main-table">
+        <thead>
+            <tr style="background-color: white !important; font-size: 15px;">
+                <th style="width: 5%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Line #</th>
+                <th style="width: 10%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Order Unit</th>
+                <th style="width: 5%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Unit</th>
+                <th style="width: 5%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Pack</th>
+                <th style="width: 8%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Item No.</th>
+                <th style="width: 47%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Description</th>
+                <th style="width: 10%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Ship Qty (PC)</th>
+                <th style="width: 10%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Net Price</th>
+                <th style="width: 10%; border: 1px solid black; padding: 5px; color: black !important; background-color: white !important; text-align: center;">Ext. Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in line_items %}
+            <tr>
+                <td style="text-align: right; padding-right: 2px;">{{ item.line_number or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 2px;">{{ item.Order_Unit or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 2px;">{{ item.unit or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 2px;">{{ item.Pack or '&nbsp;' }}</td>
+                <td style="text-align: justify; padding-right: 12px;">{{ item.Item_no or '&nbsp;' }}</td>
+                <td style="text-align: justify; padding-right: 12px; font-size: 13px;">{{ item.Description or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 2px;">{{ item.Ship_Qty or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 2px;">{{ item.Net_Price or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 2px;">{{ item.Extended_Price or '&nbsp;' }}</td>
+            </tr>            
+            {% endfor %}
+        </tbody>
+    </table>
+    <div>
+        <table style="width: 100%;">
+            <tr>
+                <!-- Left-aligned items -->
+                <td style="text-align: left; vertical-align: top; width: 60%;">
+                    Total Unit: <strong>{{ Total_qty }}</strong>&nbsp;&nbsp;&nbsp;
+                    Total WT: <strong>{{ Total_WT }}</strong>&nbsp;&nbsp;&nbsp;
+                    Total Case: <strong>{{ Total_Case }}</strong>&nbsp;&nbsp;&nbsp;
+                    VOL: <strong>{{ Vol }}</strong>
+                </td>
+    
+                <!-- Right-aligned items with label and value in separate spans for alignment -->
+                <td style="text-align: right; vertical-align: top; width: 40%;">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="text-align: left;"><strong>Sales Amount:</strong></td>
+                            <td style="text-align: right;"><strong>{{ Total_Amount }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Discount {{Discount}}%:</td>
+                            <td style="text-align: right;">{{ Total_Discount }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Tax&nbsp;%:</td>
+                            <td style="text-align: right;"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Shipping & Handling:</td>
+                            <td style="text-align: right;">{{ Shipping_Handling }}</td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"><strong>Total Amount:</strong></td>
+                            <td style="text-align: right;"><strong>{{ Total_Discounted_Amount }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Payment</td>
+                            <td style="text-align: right;"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"><strong>Balance Due:</strong></td>
+                            <td style="text-align: right;"><strong>{{ Total_Discounted_Amount }}</strong></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <p style="text-align: justify; font-size: 12px; margin: auto; overflow-wrap: break-word;">
+            ALL SALES ARE FINAL! Net prices included defective allowance discount. Please contact us within 7 days to claim for missing or damage caused by the Carriers.
+            Refused shipment will get a bill for a 20% restocking fee, plus both ways freights. Payment received after 10 days from the due date will be subject to a $50 fee,
+            or 2% whichever is greater, and additional periodic interest charges of up to 1.5% per month.
+        </p>
+    </div>
+    
+    
+    
+    </html>
