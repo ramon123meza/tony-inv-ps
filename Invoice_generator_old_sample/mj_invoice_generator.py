@@ -3,13 +3,10 @@ from jinja2 import Environment, FileSystemLoader
 import pdfkit
 import os
 
-# Set the path to the wkhtmltopdf executable
-# For Windows:
-# path_wkthmltopdf = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
-# config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
-
-# For Linux/Mac (comment out for Windows):
-config = None  # Uses system default
+# Set the path to the wkhtmltopdf executable (same directory as script)
+script_dir = os.path.dirname(os.path.abspath(__file__))
+path_wkthmltopdf = os.path.join(script_dir, "wkhtmltopdf.exe")
+config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
 
 # Function to convert HTML to PDF
 def convert_html_to_pdf(html_content, output_filename):
@@ -21,10 +18,7 @@ def convert_html_to_pdf(html_content, output_filename):
         ],
         'no-outline': None
     }
-    if config:
-        pdfkit.from_string(html_content, output_filename, options=options, configuration=config)
-    else:
-        pdfkit.from_string(html_content, output_filename, options=options)
+    pdfkit.from_string(html_content, output_filename, options=options, configuration=config)
 
 # Function to format dates to the desired format
 def format_dates(group, date_columns):
