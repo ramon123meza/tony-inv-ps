@@ -1,11 +1,9 @@
 import pandas as pd
 from jinja2 import Environment, FileSystemLoader
 import pdfkit
-import os
 
-# Set the path to the wkhtmltopdf executable (same directory as script)
-script_dir = os.path.dirname(os.path.abspath(__file__))
-path_wkthmltopdf = os.path.join(script_dir, "wkhtmltopdf.exe")
+# Set the path to the wkhtmltopdf executable
+path_wkthmltopdf = "C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe"
 config = pdfkit.configuration(wkhtmltopdf=path_wkthmltopdf)
 
 # Function to convert HTML to PDF
