@@ -91,8 +91,8 @@ for order_number, group in grouped_orders:
         }
         line_items.append(line_item)
 
-    # Pad line items to 16 rows for consistent layout
-    while len(line_items) < 16:
+    # Pad line items to 22 rows for consistent layout (extends to bottom of page)
+    while len(line_items) < 22:
         line_items.append({})
 
     order_details['line_items'] = line_items

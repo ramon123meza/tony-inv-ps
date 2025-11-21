@@ -227,7 +227,7 @@
     </table>
 
     <!-- Line Items Table -->
-    <table class="main-table" style="margin-top: 5px;">
+    <table class="main-table" style="margin-top: 5px; min-height: 450px;">
         <thead>
             <tr style="background-color: white !important; font-size: 13px;">
                 <th style="width: 4%; border: 1px solid black; padding: 4px; color: black !important; background-color: white !important; text-align: center;">Line</th>
@@ -244,17 +244,21 @@
         <tbody>
             {% for item in line_items %}
             <tr style="font-size: 12px;">
-                <td style="text-align: center; padding: 3px;">{{ item.line_number or '&nbsp;' }}</td>
-                <td style="text-align: left; padding-left: 3px;">{{ item.Item_no or '&nbsp;' }}</td>
-                <td style="text-align: right; padding-right: 3px;">{{ item.Order_Unit or '&nbsp;' }}&nbsp;{{ item.unit or '' }}</td>
-                <td style="text-align: right; padding-right: 3px;">{{ item.Pack or '&nbsp;' }}</td>
-                <td style="text-align: center; padding: 3px;">{{ item.Loc or '&nbsp;' }}</td>
-                <td style="text-align: left; padding-left: 3px; font-size: 11px;">{{ item.Description or '&nbsp;' }}</td>
-                <td style="text-align: right; padding-right: 3px;">{{ item.Ship_Qty or '&nbsp;' }}</td>
-                <td style="text-align: right; padding-right: 3px;">{{ item.Weight or '&nbsp;' }}</td>
-                <td style="text-align: right; padding-right: 3px;">{{ item.Volume or '&nbsp;' }}</td>
+                <td style="text-align: center; padding: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.line_number or '&nbsp;' }}</td>
+                <td style="text-align: left; padding-left: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Item_no or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Order_Unit or '&nbsp;' }}&nbsp;{{ item.unit or '' }}</td>
+                <td style="text-align: right; padding-right: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Pack or '&nbsp;' }}</td>
+                <td style="text-align: center; padding: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Loc or '&nbsp;' }}</td>
+                <td style="text-align: left; padding-left: 3px; font-size: 11px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Description or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Ship_Qty or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Weight or '&nbsp;' }}</td>
+                <td style="text-align: right; padding-right: 3px; border-left: 1px solid black; border-right: 1px solid black;">{{ item.Volume or '&nbsp;' }}</td>
             </tr>
             {% endfor %}
+            <!-- Bottom border row -->
+            <tr>
+                <td colspan="9" style="border-top: 1px solid black; padding: 0; height: 1px;"></td>
+            </tr>
         </tbody>
     </table>
 
